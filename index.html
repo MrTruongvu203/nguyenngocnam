@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KILLMABU - Ẩm Thực Tây Bắc</title>
+    <meta name="theme-color" content="#FF4757">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@600;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        :root {
+            --red: #FF4757;
+            --green: #2ED573;
+            --yellow: #FFA502;
+            --cream: #FFF5E1;
+            --dark: #2F3542;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Montserrat',sans-serif; background:#fff; color:#333; overflow-x:hidden; }
+
+        /* Header + LOGO TO RÕ */
+        .header {
+            position:fixed; top:0; left:0; right:0; background:white; z-index:999;
+            padding:14px 20px; box-shadow:0 6px 25px rgba(0,0,0,0.12); text-align:center;
+        }
+        .logo-img {
+            height:80px; /* Logo to hơn */ 
+            width:auto; object-fit:contain; 
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+
+        /* BANNER CHÈN ẢNH RIÊNG */
+        .hero {
+            height:100vh; 
+            background: linear-gradient(rgba(255,255,255,0.15), rgba(255,245,225,0.85)),
+                        url('banner.jpg') center/cover no-repeat; /* Thay bằng ảnh banner của bạn */
+            display:flex; flex-direction:column; justify-content:flex-end; 
+            padding-bottom:90px; text-align:center; position:relative;
+        }
+        /* Nếu chưa có file banner.jpg thì dùng ảnh online tạm */
+        .hero { background-image: linear-gradient(rgba(255,255,255,0.15), rgba(255,245,225,0.85)), 
+                         url('https://picsum.dev/300/200'); }
+
+        .hero h1 {
+            font-family:'Dancing Script',cursive; font-size:5rem; color:var(--red);
+            text-shadow:0 4px 20px rgba(255,71,87,0.4); margin-bottom:8px;
+        }
+        .hero p {
+            font-size:1.4rem; color:var(--dark); font-weight:700; margin-bottom:35px;
+        }
+        .btn-hero {
+            background:var(--red); color:white; padding:18px 60px; border-radius:50px;
+            font-weight:800; font-size:1.4rem; text-decoration:none; 
+            box-shadow:0 12px 35px rgba(255,71,87,0.5); animation:pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow:0 12px 35px rgba(255,71,87,0.5); }
+            70% { box-shadow:0 12px 55px rgba(255,71,87,0.8); }
+            100% { box-shadow:0 12px 35px rgba(255,71,87,0.5); }
+        }
+
+        /* 3 thực đơn */
+        .menu-section { padding:50px 15px 90px; background:var(--cream); }
+        .section-title {
+            text-align:center; font-family:'Bebas Neue',cursive; font-size:3.2rem; color:var(--red);
+            margin-bottom:45px; letter-spacing:3px;
+        }
+        .menu-grid {
+            display:flex; flex-direction:column; gap:35px; max-width:520px; margin:0 auto;
+        }
+        .menu-card {
+            background:white; border-radius:28px; overflow:hidden; 
+            box-shadow:0 15px 45px rgba(0,0,0,0.12); transition:all 0.4s;
+            border:4px solid transparent;
+        }
+        .menu-card:hover {
+            transform:translateY(-15px); border-color:var(--red);
+            box-shadow:0 30px 70px rgba(255,71,87,0.3);
+        }
+        .menu-card img {
+            width:100%; height:320px; object-fit:cover;
+        }
+        .card-content {
+            padding:28px; text-align:center;
+        }
+        .card-content h3 {
+            font-family:'Bebas Neue',cursive; font-size:2.6rem; color:var(--red); margin-bottom:12px;
+        }
+        .btn-card {
+            background:var(--green); color:white; padding:16px 0; width:85%; margin:0 auto;
+            border-radius:50px; font-weight:800; font-size:1.25rem; text-decoration:none; display:block;
+            box-shadow:0 10px 30px rgba(46,213,115,0.4);
+        }
+
+        /* Liên hệ */
+        .contact { padding:90px 20px; background:white; text-align:center; }
+        .zalo-card {
+            background:linear-gradient(135deg, #ffeef0, #fff0f0); padding:45px 35px;
+            border-radius:34px; max-width:420px; margin:0 auto;
+            box-shadow:0 25px 70px rgba(255,71,87,0.25); border:5px solid var(--red);
+        }
+        .zalo-avatar {
+            width:140px; height:140px; border-radius:50%; border:8px solid white;
+            box-shadow:0 12px 35px rgba(0,0,0,0.2); object-fit:cover;
+        }
+        .zalo-name { font-size:2.2rem; font-weight:800; color:var(--red); margin:18px 0 8px; }
+        .zalo-title { font-size:1.25rem; color:#555; margin-bottom:30px; }
+        .zalo-qr {
+            width:230px; height:230px; margin:25px auto; border-radius:20px;
+            border:12px solid white; box-shadow:0 12px 35px rgba(0,0,0,0.15);
+        }
+        .zalo-btns { display:flex; gap:18px; justify-content:center; margin-top:30px; }
+        .zbtn {
+            flex:1; padding:18px; border-radius:50px; font-weight:800; font-size:1.15rem;
+            text-decoration:none; display:flex; align-items:center; justify-content:center; gap:12px;
+        }
+        .call { background:var(--green); color:white; }
+        .zalo { background:#168AFF; color:white; }
+
+        /* Nút gọi nổi - đúng số 0902099842 */
+        .float-btn {
+            position:fixed; bottom:25px; left:50%; transform:translateX(-50%);
+            background:var(--red); color:white; width:88px; height:88px; border-radius:50%;
+            font-size:2.8rem; display:flex; align-items:center; justify-content:center;
+            box-shadow:0 15px 45px rgba(255,71,87,0.7); z-index:998;
+            animation:float 3s infinite;
+        }
+        @keyframes float { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-18px)} }
+
+        footer { text-align:center; padding:35px; background:#f8f8f8; color:#666; font-size:0.95rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Header + Logo to -->
+    <div class="header">
+        <img src="logo_namson.png" alt="Logo KILLMABU" class="logo-img">
+    </div>
+
+    <!-- Banner chèn ảnh riêng -->
+    <section class="hero">
+        <h1>KILLMABU</h1>
+        <p>Đỉnh cao ẩm thực Tây Bắc giữa lòng thành phố</p>
+        <a href="#menu" class="btn-hero">KHÁM PHÁ NGAY</a>
+    </section>
+
+    <!-- 3 thực đơn -->
+    <section class="menu-section" id="menu">
+        <h2 class="section-title">THỰC ĐƠN NỔI BẬT</h2>
+        <div class="menu-grid">
+
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1621996346565-e3dbc44ae37b?w=800" alt="Mỳ Cay">
+                <div class="card-content">
+                    <h3>MỲ CAY 7 CẤP ĐỘ</h3>
+                    <p>Thử thách vị giác cực mạnh<br>Ăn hết cấp 7 = miễn phí + lên tường danh dự</p>
+                    <a href="my-cay.html" class="btn-card">THỬ NGAY</a>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1607440937183-3c8c1d2fd8d6?w=800" alt="Rượu">
+                <div class="card-content">
+                    <h3>RƯỢU TÂY BẮC</h3>
+                    <p>Rượu ngô • Táo mèo • Sâu chít<br>Ngâm ủ thủ công chính gốc</p>
+                    <a href="ruou-taybac.html" class="btn-card">XEM RƯỢU</a>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800" alt="Lẩu">
+                <div class="card-content">
+                    <h3>LẨU NÚI RỪNG</h3>
+                    <p>Gà đen H’Mông • Cá hồi Sa Pa<br>Thập cẩm thảo quả mắc khén</p>
+                    <a href="lau.html" class="btn-card">ĐẶT BÀN</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Liên hệ Nguyễn Ngọc Nam -->
+    <section class="contact">
+        <div class="zalo-card">
+            <img src="https://scontent.fhan2-5.fna.fbcdn.net/v/t39.30808-6/571771571_1379679700432968_5457059197470036785_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Mf1-Q5bPKCgQ7kNvwG4FtcE&_nc_oc=Adn-fxD1k-GJQLpK_b7RdUDZdF_ywVHSkEAZv-Mj4P1iKEpjd21ZtiIyV4YL6kawtwU&_nc_zt=23&_nc_ht=scontent.fhan2-5.fna&_nc_gid=H57TQjLKi2uwoMWYH2Czew&oh=00_Afi2ejjQvRC5GD58mb1gieb-keDmkd2wTptVkgVlpBwwWQ&oe=6929CA3B" alt="Nguyễn Ngọc Nam" class="zalo-avatar">
+            <div class="zalo-name">Nguyễn Ngọc Nam</div>
+            <div class="zalo-title">Chủ nhà hàng KILLMABU</div>
+            <img src="fb.jpg" alt="QR Zalo" class="zalo-qr">
+            <div class="zalo-btns">
+                <a href="tel:0902099842" class="zbtn call">GỌI</a>
+                <a href="https://zalo.me/0902099842" target="_blank" class="zbtn zalo">ZALO</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nút gọi nổi - đúng số -->
+    <div class="float-btn" onclick="window.location.href='tel:0902099842'">
+        <i class="fas fa-phone-volume"></i>
+    </div>
+
+    <footer>
+        © 2025 KILLMABU • Nguyễn Ngọc Nam • Hotline 0902099842
+    </footer>
+</body>
+</html>

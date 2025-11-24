@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mỳ Cay 7 Cấp Độ - Song Hồng</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+</head>
+<body style="background: linear-gradient(135deg, #000, #440000);">
+
+    <nav><!-- giống trên --></nav>
+
+    <header style="background: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1920') center/cover fixed;">
+        <div data-aos="fade-down">
+            <h1 class="logo" style="color:#ff2200; text-shadow: 0 0 30px #ff2200;">MỲ CAY 7 CẤP ĐỘ</h1>
+            <p class="tagline">Ăn hết cấp 7 trong 10 phút → MIỄN PHÍ + LÊN TƯỜNG DANH DỰ</p>
+            <div style="margin-top:30px; font-size:2rem; color:#fff;">
+                Thời gian còn lại hôm nay: <span id="countdown" style="color:#e74c3c; font-weight:bold;">10:00</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="section-title" data-aos="zoom-in">CHỌN CẤP ĐỘ ĐỊA NGỤC CỦA BẠN</div>
+
+    <div class="grid">
+        <!-- 7 cấp độ -->
+        <div class="card" data-aos="fade-up" data-aos-delay="0">
+            <span class="fire-effect">🌶️</span>
+            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc44ae37b?w=800" alt="">
+            <div class="card-info"><h3 style="color:#27ae60">CẤP 1 - BÉ CON</h3><p>59.000đ</p></div>
+        </div>
+        <!-- ... (các cấp 2-6) ... -->
+        <div class="card" data-aos="fade-up" data-aos-delay="600">
+            <span class="fire-effect">🔥🔥🔥</span>
+            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc44ae37b?w=800" alt="">
+            <div class="card-info">
+                <h3 style="color:#c0392b; animation: glow 1s infinite alternate;">CẤP 7 - HỎA DIỆM SƠN</h3>
+                <p>89.000đ → Ăn hết 10 phút = 0đ + ảnh lên tường vinh danh</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        // Countdown 10 phút
+        let time = 600;
+        const timer = setInterval(() => {
+            time--;
+            let m = String(Math.floor(time/60)).padStart(2,'0');
+            let s = String(time%60).padStart(2,'0');
+            document.getElementById('countdown').innerText = m+":"+s;
+            if(time <= 0) clearInterval(timer);
+        }, 1000);
+    </script>
+</body>
+</html>
